@@ -1,7 +1,12 @@
 // Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
 //1
 function camelize(str) {
- //write your code here
+  return str
+  .split("-")
+  .map((word, index) =>
+  index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+)
+.join ("");
 }
 
 console.log(camelize("background-color"))
@@ -17,13 +22,10 @@ let mary = { name: "Mary", surname: "Key", id: 3 };
 
 let users = [john, pete, mary];
 
-//write your code here
+let usersMapped = users.map((user) => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id,
+}));
 
-/*   usersMapped = [
-    { fullName: "John Smith", id: 1 },
-    { fullName: "Pete Hunt", id: 2 },
-    { fullName: "Mary Key", id: 3 }
-  ] */
-
-console.log(usersMapped[0].id); // 1
-console.log(usersMapped[0].fullName); // John Smith
+console.log(usersMapped[1].id); 
+console.log(usersMapped[1].fullName); 
